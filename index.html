@@ -10,9 +10,9 @@
       margin: 0;
       padding: 0;
       background-image: url('https://i.postimg.cc/Wz4W04n2/Chat-GPT-Image-12-Juli-2025-08-54-37.png');
-      background-size: cover; /* Bild wird über die gesamte Fläche gestreckt */
-      background-position: center; /* Bild bleibt zentriert */
-      background-attachment: fixed; /* Hintergrund bleibt beim Scrollen fixiert */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       text-align: center;
     }
     .container {
@@ -29,6 +29,16 @@
     img:active {
       transform: scale(0.95);
     }
+    /* Styles for the close button */
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+      z-index: 10;
+    }
   </style>
 </head>
 <body>
@@ -39,13 +49,27 @@
 
   <script>
     const triggerImg = document.getElementById('trigger-img');
-
+    
     // URL für das Bild, das nach dem Klicken angezeigt werden soll
     const newImageSrc = 'https://i.postimg.cc/QMpy3wCr/F87650-F7-E3-AA-41-E6-8382-7-B1-FF3-FDA972.png';
 
-    // Wenn der Benutzer auf das Bild klickt, ersetze das Bild
+    // Wenn der Benutzer auf das Bild klickt, ersetze das Bild und füge das "X"-Symbol hinzu
     triggerImg.addEventListener('click', () => {
       triggerImg.src = newImageSrc; // Bildquelle ändern
+
+      // Erstelle das "X"-Symbol
+      const closeBtn = document.createElement('span');
+      closeBtn.textContent = '×';  // Das "X" Symbol
+      closeBtn.classList.add('close-btn');
+
+      // Füge das "X"-Symbol in die Seite ein
+      document.body.appendChild(closeBtn);
+
+      // Wenn auf das "X"-Symbol geklickt wird, setze das Bild zurück
+      closeBtn.addEventListener('click', () => {
+        triggerImg.src = 'https://i.postimg.cc/PrQJCr7L/A4933-BEB-B316-4-BC2-B6-EB-FF5-E96-D576-ED.jpg'; // Originalbild zurücksetzen
+        closeBtn.remove(); // Entferne das "X"-Symbol
+      });
     });
   </script>
 
