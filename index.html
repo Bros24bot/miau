@@ -22,7 +22,9 @@
       height: 100vh;
     }
     img {
-      width: 300px;
+      width: 300px;        /* Einheitliche Breite */
+      height: 300px;       /* Einheitliche Höhe */
+      object-fit: cover;   /* Das Bild wird zugeschnitten, um die Box auszufüllen */
       cursor: pointer;
       transition: transform 0.05s;
     }
