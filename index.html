@@ -7,10 +7,13 @@
   <style>
     body {
       font-family: sans-serif;
-      text-align: center;
-      background-color: #f0f0f0;
       margin: 0;
       padding: 0;
+      background-image: url('https://i.postimg.cc/Wz4W04n2/Chat-GPT-Image-12-Juli-2025-08-54-37.png');
+      background-size: cover; /* Bild wird über die gesamte Fläche gestreckt */
+      background-position: center; /* Bild bleibt zentriert */
+      background-attachment: fixed; /* Hintergrund bleibt beim Scrollen fixiert */
+      text-align: center;
     }
     .container {
       display: flex;
@@ -26,36 +29,6 @@
     img:active {
       transform: scale(0.95);
     }
-    /* Styles for the modal */
-    .modal {
-      display: none; /* Initially hidden */
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    .modal-content {
-      background-color: white;
-      padding: 20px;
-      border-radius: 8px;
-      text-align: center;
-      position: relative;
-    }
-    .close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 25px;
-      cursor: pointer;
-    }
-    .modal img {
-      width: 80%;
-    }
   </style>
 </head>
 <body>
@@ -64,34 +37,15 @@
     <img id="trigger-img" src="https://i.postimg.cc/PrQJCr7L/A4933-BEB-B316-4-BC2-B6-EB-FF5-E96-D576-ED.jpg" alt="Click Me">
   </div>
 
-  <!-- The Modal -->
-  <div id="myModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <img src="https://i.postimg.cc/jSq5PYVM/F87650-F7-E3-AA-41-E6-8382-7-B1-FF3-FDA972.jpg" alt="Pop-up Image">
-    </div>
-  </div>
-
   <script>
     const triggerImg = document.getElementById('trigger-img');
-    const modal = document.getElementById('myModal');
-    const closeBtn = document.querySelector('.close');
 
-    // When the user clicks the image, show the modal
+    // URL für das Bild, das nach dem Klicken angezeigt werden soll
+    const newImageSrc = 'https://i.postimg.cc/QMpy3wCr/F87650-F7-E3-AA-41-E6-8382-7-B1-FF3-FDA972.png';
+
+    // Wenn der Benutzer auf das Bild klickt, ersetze das Bild
     triggerImg.addEventListener('click', () => {
-      modal.style.display = 'flex';
-    });
-
-    // When the user clicks the close button, hide the modal
-    closeBtn.addEventListener('click', () => {
-      modal.style.display = 'none';
-    });
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.addEventListener('click', (event) => {
-      if (event.target === modal) {
-        modal.style.display = 'none';
-      }
+      triggerImg.src = newImageSrc; // Bildquelle ändern
     });
   </script>
 
