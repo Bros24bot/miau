@@ -68,19 +68,8 @@
       transform: scale(1.1); /* Bild wird leicht vergrößert, wenn es geklickt wird */
     }
 
-    #toggle-text {
-      position: absolute;
-      top: 20px;
-      width: 100%;
-      font-size: 24px;
-      font-weight: bold;
-      color: white;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-      z-index: 5;
-    }
-
     .emoji {
-      font-size: 40px;
+      font-size: 60px;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -106,16 +95,15 @@
   </script>
 
   <div class="container">
-    <span id="toggle-text">Click the image for a surprise!</span>
+    <!-- Katzen-Emoji im Bild -->
+    <div class="emoji">😺</div>
     <img id="toggle-img" src="https://i.postimg.cc/PrQJCr7L/A4933-BEB-B316-4-BC2-B6-EB-FF5-E96-D576-ED.jpg" alt="Click Me">
-    <div class="emoji" id="emoji">😺</div>
   </div>
 
   <audio id="click-sound" src="https://www.soundjay.com/button/beep-07.wav"></audio> <!-- Klick-Sound -->
 
   <script>
     const toggleImg = document.getElementById('toggle-img');
-    const toggleText = document.getElementById('toggle-text');
     const emoji = document.getElementById('emoji');
     const clickSound = document.getElementById('click-sound');
 
@@ -123,7 +111,6 @@
     const image2Src = 'https://i.postimg.cc/QMpy3wCr/F87650-F7-E3-AA-41-E6-8382-7-B1-FF3-FDA972.png';
 
     let isImage1 = true;
-    let emojiVisible = false;
 
     toggleImg.addEventListener('click', () => {
       // Sound abspielen
@@ -132,24 +119,11 @@
       // Bild wechseln
       if (isImage1) {
         toggleImg.src = image2Src;
-        toggleText.textContent = "Surprise! 😄"; // Text ändern
-        emoji.style.display = "block"; // Emoji anzeigen
       } else {
         toggleImg.src = image1Src;
-        toggleText.textContent = "Click the image for a surprise!";
-        emoji.style.display = "none"; // Emoji ausblenden
       }
 
       isImage1 = !isImage1;
-
-      // Emoji-Effekt: Hinzufügen eines lustigen "Jumps" nach dem Klicken
-      if (!emojiVisible) {
-        emoji.style.animation = "jump 0.5s ease-in-out";
-        emojiVisible = true;
-        setTimeout(() => {
-          emoji.style.animation = ""; // Animation zurücksetzen
-        }, 500);
-      }
     });
   </script>
 
