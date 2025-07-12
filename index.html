@@ -68,15 +68,6 @@
       transform: scale(1.1); /* Bild wird leicht vergrößert, wenn es geklickt wird */
     }
 
-    .emoji {
-      font-size: 60px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 10;
-    }
-
   </style>
 </head>
 <body>
@@ -95,8 +86,6 @@
   </script>
 
   <div class="container">
-    <!-- Katzen-Emoji im Bild -->
-    <div class="emoji">😺</div>
     <img id="toggle-img" src="https://i.postimg.cc/PrQJCr7L/A4933-BEB-B316-4-BC2-B6-EB-FF5-E96-D576-ED.jpg" alt="Click Me">
   </div>
 
@@ -104,7 +93,6 @@
 
   <script>
     const toggleImg = document.getElementById('toggle-img');
-    const emoji = document.getElementById('emoji');
     const clickSound = document.getElementById('click-sound');
 
     const image1Src = 'https://i.postimg.cc/PrQJCr7L/A4933-BEB-B316-4-BC2-B6-EB-FF5-E96-D576-ED.jpg';
@@ -126,14 +114,6 @@
       isImage1 = !isImage1;
     });
   </script>
-
-  <style>
-    @keyframes jump {
-      0% { transform: translate(-50%, -50%) scale(1); }
-      50% { transform: translate(-50%, -70%) scale(1.2); }
-      100% { transform: translate(-50%, -50%) scale(1); }
-    }
-  </style>
 
 </body>
 </html>
