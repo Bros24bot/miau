@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Click Example</title>
+  <title>Image Toggle Example</title>
   <style>
     body {
       font-family: sans-serif;
@@ -29,47 +29,31 @@
     img:active {
       transform: scale(0.95);
     }
-    /* Styles for the close button */
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 30px;
-      color: white;
-      cursor: pointer;
-      z-index: 10;
-    }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <img id="trigger-img" src="https://i.postimg.cc/PrQJCr7L/A4933-BEB-B316-4-BC2-B6-EB-FF5-E96-D576-ED.jpg" alt="Click Me">
+    <img id="toggle-img" src="https://i.postimg.cc/PrQJCr7L/A4933-BEB-B316-4-BC2-B6-EB-FF5-E96-D576-ED.jpg" alt="Click Me">
   </div>
 
   <script>
-    const triggerImg = document.getElementById('trigger-img');
+    const toggleImg = document.getElementById('toggle-img');
     
-    // URL für das Bild, das nach dem Klicken angezeigt werden soll
-    const newImageSrc = 'https://i.postimg.cc/QMpy3wCr/F87650-F7-E3-AA-41-E6-8382-7-B1-FF3-FDA972.png';
+    // URLs der beiden Bilder
+    const image1Src = 'https://i.postimg.cc/PrQJCr7L/A4933-BEB-B316-4-BC2-B6-EB-FF5-E96-D576-ED.jpg';
+    const image2Src = 'https://i.postimg.cc/QMpy3wCr/F87650-F7-E3-AA-41-E6-8382-7-B1-FF3-FDA972.png';
 
-    // Wenn der Benutzer auf das Bild klickt, ersetze das Bild und füge das "X"-Symbol hinzu
-    triggerImg.addEventListener('click', () => {
-      triggerImg.src = newImageSrc; // Bildquelle ändern
+    // Funktion zum Wechseln des Bildes
+    let isImage1 = true;  // Flag, um festzustellen, welches Bild angezeigt wird
 
-      // Erstelle das "X"-Symbol
-      const closeBtn = document.createElement('span');
-      closeBtn.textContent = '×';  // Das "X" Symbol
-      closeBtn.classList.add('close-btn');
-
-      // Füge das "X"-Symbol in die Seite ein
-      document.body.appendChild(closeBtn);
-
-      // Wenn auf das "X"-Symbol geklickt wird, setze das Bild zurück
-      closeBtn.addEventListener('click', () => {
-        triggerImg.src = 'https://i.postimg.cc/PrQJCr7L/A4933-BEB-B316-4-BC2-B6-EB-FF5-E96-D576-ED.jpg'; // Originalbild zurücksetzen
-        closeBtn.remove(); // Entferne das "X"-Symbol
-      });
+    toggleImg.addEventListener('click', () => {
+      if (isImage1) {
+        toggleImg.src = image2Src;  // Setze Bild 2
+      } else {
+        toggleImg.src = image1Src;  // Setze Bild 1
+      }
+      isImage1 = !isImage1;  // Wechsle den Zustand
     });
   </script>
 
