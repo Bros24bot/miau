@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Toggle with Snow and Red Background</title>
+  <title>Image Toggle with Snow</title>
   <style>
     body {
       font-family: sans-serif;
@@ -17,7 +17,6 @@
       height: 100vh;
       overflow: hidden;
       position: relative;
-      transition: background-color 0.3s ease; /* Weiche Übergänge für Hintergrundfarbe */
     }
 
     /* Schnee-Effekt - größere "Sterne" */
@@ -84,4 +83,37 @@
       snowflake.style.animationDelay = Math.random() * 5 + 's'; // Verzögerung für jede Schneeflocke
       document.body.appendChild(snowflake);
     }
-  </script
+  </script>
+
+  <div class="container">
+    <img id="toggle-img" src="https://i.postimg.cc/PrQJCr7L/A4933-BEB-B316-4-BC2-B6-EB-FF5-E96-D576-ED.jpg" alt="Click Me">
+  </div>
+
+  <audio id="click-sound" src="https://www.soundjay.com/button/beep-07.wav"></audio> <!-- Klick-Sound -->
+
+  <script>
+    const toggleImg = document.getElementById('toggle-img');
+    const clickSound = document.getElementById('click-sound');
+
+    const image1Src = 'https://i.postimg.cc/PrQJCr7L/A4933-BEB-B316-4-BC2-B6-EB-FF5-E96-D576-ED.jpg';
+    const image2Src = 'https://i.postimg.cc/QMpy3wCr/F87650-F7-E3-AA-41-E6-8382-7-B1-FF3-FDA972.png';
+
+    let isImage1 = true;
+
+    toggleImg.addEventListener('click', () => {
+      // Sound abspielen
+      clickSound.play();
+
+      // Bild wechseln
+      if (isImage1) {
+        toggleImg.src = image2Src;
+      } else {
+        toggleImg.src = image1Src;
+      }
+
+      isImage1 = !isImage1;
+    });
+  </script>
+
+</body>
+</html>
