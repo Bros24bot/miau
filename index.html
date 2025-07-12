@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Toggle Example</title>
+  <title>Image Toggle with Snow</title>
   <style>
     body {
       font-family: sans-serif;
@@ -14,7 +14,40 @@
       background-position: center;
       background-attachment: fixed;
       text-align: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
     }
+
+    /* Schnee-Effekt - größere "Sterne" */
+    .snowflake {
+      position: absolute;
+      top: -10px;
+      background-color: white;
+      width: 10px;  /* Größere Schneeflocken */
+      height: 10px; /* Größere Schneeflocken */
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { top: -10px; }
+      100% { top: 100vh; }
+    }
+
+    /* Schneeflocken mit zufälliger Position und Geschwindigkeit */
+    .snowflake:nth-child(odd) {
+      animation-duration: 10s;  /* Langsame Fallgeschwindigkeit */
+      left: calc(100% * random());
+    }
+
+    .snowflake:nth-child(even) {
+      animation-duration: 8s;  /* Langsame Fallgeschwindigkeit */
+      left: calc(100% * random());
+    }
+
+    /* Container für das Bild */
     .container {
       display: flex;
       justify-content: center;
@@ -22,16 +55,19 @@
       height: 100vh;
       position: relative;
     }
+
     img {
       width: 400px;
       height: 400px;
       object-fit: cover;
       cursor: pointer;
-      transition: transform 0.3s ease; /* Lustige Animation */
+      transition: transform 0.3s ease;
     }
+
     img:active {
       transform: scale(1.1); /* Bild wird leicht vergrößert, wenn es geklickt wird */
     }
+
     #toggle-text {
       position: absolute;
       top: 20px;
@@ -42,6 +78,7 @@
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
       z-index: 5;
     }
+
     .emoji {
       font-size: 40px;
       position: absolute;
@@ -50,14 +87,28 @@
       transform: translate(-50%, -50%);
       z-index: 10;
     }
+
   </style>
 </head>
 <body>
 
+  <!-- Schnee erzeugen -->
+  <script>
+    // Generiere Schneeflocken
+    for (let i = 0; i < 100; i++) {
+      let snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowflake.style.left = Math.random() * 100 + 'vw'; // Position der Schneeflocke zufällig
+      snowflake.style.animationDuration = Math.random() * 3 + 8 + 's'; // Zufällige Geschwindigkeit
+      snowflake.style.animationDelay = Math.random() * 5 + 's'; // Verzögerung für jede Schneeflocke
+      document.body.appendChild(snowflake);
+    }
+  </script>
+
   <div class="container">
     <span id="toggle-text">Click the image for a surprise!</span>
     <img id="toggle-img" src="https://i.postimg.cc/PrQJCr7L/A4933-BEB-B316-4-BC2-B6-EB-FF5-E96-D576-ED.jpg" alt="Click Me">
-    <div class="emoji" id="emoji">😺</div> <!-- Lustiges Emoji -->
+    <div class="emoji" id="emoji">😺</div>
   </div>
 
   <audio id="click-sound" src="https://www.soundjay.com/button/beep-07.wav"></audio> <!-- Klick-Sound -->
