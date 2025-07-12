@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pop-up Example</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    img {
+      width: 300px;
+      cursor: pointer;
+      transition: transform 0.05s;
+    }
+    img:active {
+      transform: scale(0.95);
+    }
+    /* Styles for the modal */
+    .modal {
+      display: none; /* Initially hidden */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      position: relative;
+    }
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 25px;
+      cursor: pointer;
+    }
+    .modal img {
+      width: 80%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img id="trigger-img" src="https://imgur.com/a/H6nLE8b" alt="Click Me">
+  </div>
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img src="https://imgur.com/a/DC8TY2S" alt="Pop-up Image">
+    </div>
+  </div>
+
+  <script>
+    const triggerImg = document.getElementById('trigger-img');
+    const modal = document.getElementById('myModal');
+    const closeBtn = document.querySelector('.close');
+
+    // When the user clicks the image, show the modal
+    triggerImg.addEventListener('click', () => {
+      modal.style.display = 'flex';
+    });
+
+    // When the user clicks the close button, hide the modal
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
