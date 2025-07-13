@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Toggle with Snow</title>
+  <title>Image Toggle with Snow and Visitor Counter</title>
   <style>
     body {
       font-family: sans-serif;
@@ -68,9 +68,25 @@
       transform: scale(1.1); /* Bild wird leicht vergrößert, wenn es geklickt wird */
     }
 
+    /* Besucherzähler */
+    .visitor-counter {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
   </style>
 </head>
 <body>
+
+  <!-- Besucherzähler -->
+  <div class="visitor-counter" id="visitor-counter">
+    Besucher: 0
+  </div>
 
   <!-- Schnee erzeugen -->
   <script>
@@ -83,6 +99,23 @@
       snowflake.style.animationDelay = Math.random() * 5 + 's'; // Verzögerung für jede Schneeflocke
       document.body.appendChild(snowflake);
     }
+
+    // Besucherzähler aus localStorage holen
+    let visitorCount = localStorage.getItem('visitorCount');
+
+    // Wenn es noch keinen Zähler gibt, setze ihn auf 1, ansonsten erhöhe ihn um 1
+    if (!visitorCount) {
+      visitorCount = 1;
+    } else {
+      visitorCount = parseInt(visitorCount) + 1;
+    }
+
+    // Speichere den neuen Zähler in localStorage
+    localStorage.setItem('visitorCount', visitorCount);
+
+    // Zeige den Besucherzähler an
+    document.getElementById('visitor-counter').textContent = 'Besucher: ' + visitorCount;
+
   </script>
 
   <div class="container">
