@@ -84,11 +84,19 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       border: 1px solid #f5a623;
       max-width: 120px; /* Maximale Breite für den Zähler */
+      text-align: center;
     }
 
     .hitwebcounter img {
       max-width: 100%;
       height: auto;
+    }
+
+    .hitwebcounter .visitor-text {
+      font-size: 12px; /* Kleinere Schrift für "Visitor" */
+      font-weight: normal;
+      color: #333;
+      margin-bottom: 5px;
     }
 
   </style>
@@ -97,6 +105,7 @@
 
   <!-- Hitwebcounter Code START -->
   <div class="hitwebcounter">
+    <div class="visitor-text">Visitor</div> <!-- Hier fügen wir den "Visitor"-Text hinzu -->
     <a href="https://www.hitwebcounter.com" target="_blank">
       <img src="https://hitwebcounter.com/counter/counter.php?page=21143561&style=0025&nbdigits=6&type=page&initCount=0" title="Counter Widget" Alt="Visit counter For Websites" border="0" />
     </a>
