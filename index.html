@@ -78,13 +78,14 @@
       color: white;
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     }
+
   </style>
 </head>
 <body>
 
-  <!-- Hitwebcounter Besucherzähler -->
-  <div class="visitor-counter">
-    <script type="text/javascript" src="https://www.hitwebcounter.com/counter/counter.js"></script>
+  <!-- Besucherzähler -->
+  <div class="visitor-counter" id="visitor-counter">
+    Visitor: 0
   </div>
 
   <!-- Schnee erzeugen -->
@@ -98,6 +99,23 @@
       snowflake.style.animationDelay = Math.random() * 5 + 's'; // Verzögerung für jede Schneeflocke
       document.body.appendChild(snowflake);
     }
+
+    // Besucherzähler aus localStorage holen
+    let visitorCount = localStorage.getItem('visitorCount');
+
+    // Wenn es noch keinen Zähler gibt, setze ihn auf 1, ansonsten erhöhe ihn um 1
+    if (!visitorCount) {
+      visitorCount = 1;
+    } else {
+      visitorCount = parseInt(visitorCount) + 1;
+    }
+
+    // Speichere den neuen Zähler in localStorage
+    localStorage.setItem('visitorCount', visitorCount);
+
+    // Zeige den Besucherzähler an
+    document.getElementById('visitor-counter').textContent = 'Besucher: ' + visitorCount;
+
   </script>
 
   <div class="container">
