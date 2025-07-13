@@ -85,7 +85,7 @@
 
   <!-- Besucherzähler -->
   <div class="visitor-counter" id="visitor-counter">
-    Visitor: 0
+    Visitor: 0 <!-- Hier wurde "Visitor" statt "Besucher" geändert -->
   </div>
 
   <!-- Schnee erzeugen -->
@@ -114,8 +114,7 @@
     localStorage.setItem('visitorCount', visitorCount);
 
     // Zeige den Besucherzähler an
-    document.getElementById('visitor-counter').textContent = 'Besucher: ' + visitorCount;
-
+    document.getElementById('visitor-counter').textContent = 'Visitor: ' + visitorCount;  <!-- Hier wurde "Visitor" statt "Besucher" geändert -->
   </script>
 
   <div class="container">
