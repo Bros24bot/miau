@@ -79,14 +79,43 @@
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     }
 
+    /* Anpassung des Hitwebcounter-Kastens */
+    .hitwebcounter {
+      position: absolute;
+      top: 70px; /* Platz für den Besucherzähler */
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      font-size: 16px; /* Kleinere Schriftgröße */
+      font-weight: bold;
+      color: #333;
+      display: inline-block;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      border: 2px solid #f5a623;
+    }
+
+    .hitwebcounter img {
+      max-width: 100%;
+      height: auto;
+    }
   </style>
 </head>
 <body>
 
   <!-- Besucherzähler -->
   <div class="visitor-counter" id="visitor-counter">
-    Visitor: 0 <!-- Hier wurde "Visitor" statt "Besucher" geändert -->
+    Visitor: 0
   </div>
+
+  <!-- Hitwebcounter Code START -->
+  <div class="hitwebcounter">
+    <a href="https://www.hitwebcounter.com" target="_blank">
+      <img src="https://hitwebcounter.com/counter/counter.php?page=21143561&style=0025&nbdigits=6&type=page&initCount=0" title="Counter Widget" Alt="Visit counter For Websites" border="0" />
+    </a>
+  </div>
+  <!-- Hitwebcounter Code END -->
 
   <!-- Schnee erzeugen -->
   <script>
@@ -114,7 +143,7 @@
     localStorage.setItem('visitorCount', visitorCount);
 
     // Zeige den Besucherzähler an
-    document.getElementById('visitor-counter').textContent = 'Visitor: ' + visitorCount;  <!-- Hier wurde "Visitor" statt "Besucher" geändert -->
+    document.getElementById('visitor-counter').textContent = 'Visitor: ' + visitorCount;
   </script>
 
   <div class="container">
