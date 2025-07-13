@@ -75,26 +75,26 @@
       left: 50%;
       transform: translateX(-50%);
       background-color: rgba(255, 255, 255, 0.8);
-      padding: 20px;
-      border-radius: 15px;
-      font-size: 24px;
+      padding: 40px; /* Vergrößerung des Abstands */
+      border-radius: 25px;
+      font-size: 32px; /* Größere Schrift */
       font-weight: bold;
       color: #333;
       text-align: center;
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      border: 2px solid #f5a623;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      border: 3px solid #f5a623;
       background-image: url('https://i.imgur.com/QM2p5pM.png'); /* Katzenpfoten als Hintergrundbild */
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 30px;
+      background-size: 40px; /* Größere Pfoten */
     }
 
     /* Besucherzähler Text */
     .visitor-counter-text {
-      margin-left: 10px;
+      margin-left: 15px;
     }
 
   </style>
@@ -158,4 +158,25 @@
     const toggleImg = document.getElementById('toggle-img');
     const clickSound = document.getElementById('click-sound');
 
-    const image1Src
+    const image1Src = 'https://i.postimg.cc/PrQJCr7L/A4933-BEB-B316-4-BC2-B6-EB-FF5-E96-D576-ED.jpg';
+    const image2Src = 'https://i.postimg.cc/QMpy3wCr/F87650-F7-E3-AA-41-E6-8382-7-B1-FF3-FDA972.png';
+
+    let isImage1 = true;
+
+    toggleImg.addEventListener('click', () => {
+      // Sound abspielen
+      clickSound.play();
+
+      // Bild wechseln
+      if (isImage1) {
+        toggleImg.src = image2Src;
+      } else {
+        toggleImg.src = image1Src;
+      }
+
+      isImage1 = !isImage1;
+    });
+  </script>
+
+</body>
+</html>
