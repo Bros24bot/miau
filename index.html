@@ -68,72 +68,43 @@
       transform: scale(1.1); /* Bild wird leicht vergrößert, wenn es geklickt wird */
     }
 
-    /* Besucherzähler - Katzendesign */
+    /* Besucherzähler von Hitwebcounter */
     .visitor-counter {
       position: absolute;
-      top: 20px;
+      top: 10px; /* Oberhalb des Bildes */
       left: 50%;
       transform: translateX(-50%);
       background-color: rgba(255, 255, 255, 0.8);
-      padding: 40px; /* Vergrößerung des Abstands */
-      border-radius: 25px;
-      font-size: 32px; /* Größere Schrift */
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 24px;
       font-weight: bold;
       color: #333;
       text-align: center;
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-      border: 3px solid #f5a623;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border: 2px solid #f5a623;
       background-image: url('https://i.imgur.com/QM2p5pM.png'); /* Katzenpfoten als Hintergrundbild */
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 40px; /* Größere Pfoten */
-    }
-
-    /* Besucherzähler Text */
-    .visitor-counter-text {
-      margin-left: 15px;
+      background-size: 30px; /* Katzenpfoten */
     }
 
   </style>
 </head>
 <body>
 
-  <!-- Schnee erzeugen -->
-  <script>
-    // Generiere Schneeflocken
-    for (let i = 0; i < 100; i++) {
-      let snowflake = document.createElement('div');
-      snowflake.classList.add('snowflake');
-      snowflake.style.left = Math.random() * 100 + 'vw'; // Position der Schneeflocke zufällig
-      snowflake.style.animationDuration = Math.random() * 3 + 8 + 's'; // Zufällige Geschwindigkeit
-      snowflake.style.animationDelay = Math.random() * 5 + 's'; // Verzögerung für jede Schneeflocke
-      document.body.appendChild(snowflake);
-    }
-
-    // Besucherzähler aus localStorage holen
-    let visitorCount = localStorage.getItem('visitorCount');
-
-    // Wenn es noch keinen Zähler gibt, setze ihn auf 1, ansonsten erhöhe ihn um 1
-    if (!visitorCount) {
-      visitorCount = 1;
-    } else {
-      visitorCount = parseInt(visitorCount) + 1;
-    }
-
-    // Speichere den neuen Zähler in localStorage
-    localStorage.setItem('visitorCount', visitorCount);
-
-    // Zeige den Besucherzähler an
-    document.getElementById('visitor-counter').textContent = visitorCount;
-  </script>
-
-  <!-- Besucherzähler im Katzendesign -->
-  <div class="visitor-counter" id="visitor-counter">
-    0
+  <!-- Hitwebcounter Zähler -->
+  <div class="visitor-counter">
+    Visitor
   </div>
+
+  <!-- Hitwebcounter Code -->
+  <a href="https://www.hitwebcounter.com" target="_blank">
+    <img src="https://hitwebcounter.com/counter/counter.php?page=21143453&style=0028&nbdigits=6&type=page&initCount=0" title="Counter Widget" alt="Visit counter For Websites" border="0" />
+  </a>
 
   <!-- Schnee erzeugen -->
   <script>
